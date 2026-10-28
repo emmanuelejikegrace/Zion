@@ -3,14 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ZION 🐦‍🔥</title>
+    <title>Zion 🐦‍🔥</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <div class="app">
+
+    <!-- ============ LOGIN SCREEN ============ -->
+    <div class="app hidden" id="login-screen">
+        <div class="auth-box">
+            <h1 class="auth-title">Zion 🐦‍🔥</h1>
+            <p class="auth-subtitle">welcome back</p>
+
+            <form id="login-form" class="auth-form">
+                <input type="text" id="login-username" placeholder="Username" autocomplete="username" required />
+                <input type="password" id="login-password" placeholder="Password" autocomplete="current-password" required />
+                <button type="submit" id="login-submit">Log in</button>
+            </form>
+
+            <p class="auth-error" id="login-error"></p>
+
+            <p class="auth-toggle">
+                <span>Don't have an account?</span>
+                <a href="#" id="go-signup">Sign up</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- ============ SIGNUP SCREEN ============ -->
+    <div class="app hidden" id="signup-screen">
+        <div class="auth-box">
+            <h1 class="auth-title">Zion 🐦‍🔥</h1>
+            <p class="auth-subtitle">create your account</p>
+
+            <form id="signup-form" class="auth-form">
+                <input type="text" id="signup-username" placeholder="Username" autocomplete="username" required />
+                <input type="password" id="signup-password" placeholder="Password (min 6 chars)" autocomplete="new-password" required />
+                <input type="password" id="signup-confirm" placeholder="Confirm password" autocomplete="new-password" required />
+
+                <label class="field-label">Security question</label>
+                <select id="signup-question" required>
+                    <option value="">— choose one —</option>
+                    <option value="What is the name of your first pet?">What is the name of your first pet?</option>
+                    <option value="What is your mother's maiden name?">What is your mother's maiden name?</option>
+                    <option value="What city were you born in?">What city were you born in?</option>
+                    <option value="What was the name of your first school?">What was the name of your first school?</option>
+                    <option value="What is your favorite food?">What is your favorite food?</option>
+                </select>
+                <input type="text" id="signup-answer" placeholder="Your answer (case-sensitive)" autocomplete="off" required />
+
+                <button type="submit" id="signup-submit">Create account</button>
+            </form>
+
+            <p class="auth-error" id="signup-error"></p>
+
+            <p class="auth-toggle">
+                <span>Already have an account?</span>
+                <a href="#" id="go-login">Log in</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- ============ CHAT SCREEN ============ -->
+    <div class="app hidden" id="chat-screen">
         <header class="header">
-            <h1>ZION 🐦‍🔥</h1>
-            <p class="subtitle">messages that fly quietly 🐦‍🔥</p>
+            <div>
+                <h1>Zion 🐦‍🔥</h1>
+                <p class="subtitle" id="whoami">...</p>
+            </div>
+            <button id="logout-btn" class="logout-btn">Log out</button>
         </header>
 
         <main class="messages" id="messages">
@@ -18,21 +78,16 @@
         </main>
 
         <footer class="composer">
-            <input
-                type="text"
-                id="message-input"
-                placeholder="Type a message..."
-                autocomplete="off"
-            />
+            <input type="text" id="message-input" placeholder="Type a message..." autocomplete="off" />
             <button id="send-btn" aria-label="Send message">
                 <svg width="35" height="35" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M22 2L11 13" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-            </button>    
+            </button>
         </footer>
     </div>
 
     <script src="/static/app.js"></script>
-</body>    
-</html> 
+</body>
+</html>
